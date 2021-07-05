@@ -4,7 +4,7 @@ class Player:
         self.name_ = name
     
     def Bet(self, amount):
-        self.money = self.money - amount
+        self.money_ = self.money_ - amount
 
     def WinningMoney(self, bets):
-        self.money += bets
+        self.money_ += bets
