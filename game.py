@@ -1,8 +1,20 @@
 import deck
 import random
-import player
+from player import Player
 
-Decks = deck.Deck().cards
+def Game():
+    dealer = Player(1000000, 'Dealer')
+    player = Player(10000, 'You')
+    Decks = deck.Deck().cards
+    Stop = False
+    amount = input('Your bet: ')
 
-dealer = player.Player(1000000, 'Dealer')
-player = player.Player(10000, 'You')
+    while (not Stop):
+        decision = input('Type hit to draw or stop to stop\n').lower()
+        if decision == 'hit':
+            print('TBA')
+        elif decision == 'stop':
+            Stop = True
+        else:
+            print("Unknown command\nType 'y' or 'n'\n")
+            continue
