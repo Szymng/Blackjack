@@ -1,7 +1,4 @@
-import deck
-import random
-
-Decks = deck.Deck().cards
+import game
 
 gameOn = True
 
