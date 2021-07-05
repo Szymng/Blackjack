@@ -6,3 +6,5 @@ class Player:
     def Bet(self, amount):
         self.money = self.money - amount
 
+    def WinningMoney(self, bets):
+        self.money += bets
