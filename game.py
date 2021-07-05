@@ -1,13 +1,19 @@
 import deck
-import random
 from player import Player
 
 def Game():
     dealer = Player(1000000, 'Dealer')
     player = Player(10000, 'You')
-    Decks = deck.Deck().cards
+    Decks = deck.Deck()
     Stop = False
     amount = input('Your bet: ')
+
+    playersCards = []
+    dealersCards = []
+    
+    for i in range (0, 2):
+        playersCards.append(Decks.Draw())
+        dealersCards.append(Decks.Draw())
 
     while (not Stop):
         decision = input('Type hit to draw or stop to stop\n').lower()
