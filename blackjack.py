@@ -1,3 +1,4 @@
+#main file where the blackjack is playing
 from game import Game
 from player import Player
 

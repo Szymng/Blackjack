@@ -1,10 +1,11 @@
+#single game of blackjack
 import deck
 
 def CardSum(cards):
     sum = 0
     aceNumber = 0
     for card in cards:
-        if card == 'Ace':
+        if card == 'Ace': #Aces have 1 value and 11, so they will be added after summing up other cards
             aceNumber += 1
         else:
             if card == '2':
@@ -23,7 +24,7 @@ def CardSum(cards):
                 sum += 9
             else:
                 sum += 10
-    for ace in range(0, aceNumber):
+    for ace in range(0, aceNumber): #adding aces to sum
         if sum < 11:
             sum += 11
         else:
@@ -52,9 +53,12 @@ def Game(player, dealer):
     playerSum = 0
     dealerSum = 0
 
+    #first hand
     for i in range (0, 2):
         playersCards.append(Decks.Draw())
         dealersCards.append(Decks.Draw())
+    
+    #print your current hand and its value
     print(playersCards)
     playerSum = CardSum(playersCards)
     dealersCards = CardSum(dealersCards)
@@ -62,19 +66,22 @@ def Game(player, dealer):
     print(playerSum)
     while (not Stop):
         decision = input('Type hit to draw a card or stop to stop\n').lower()
-        if decision == 'hit':
+        if decision == 'hit': #draw a card
             playersCards.append(Decks.Draw())
+            
+            #print your current hand and its value
             print(playersCards)
             playerSum = CardSum(playersCards)
             print(playerSum)
-        elif decision == 'stop':
+        elif decision == 'stop': #stop drawing
             Stop = True
         else:
             print("Unknown command\nType 'y' or 'n'\n")
             continue
-        if playerSum > 21:
+        if playerSum > 21: #check if player needs to draw more cards
             Stop = True
-    areYouWinning = CheckSum(playerSum, dealerSum)
+    
+    areYouWinning = CheckSum(playerSum, dealerSum) #check win condition
     if areYouWinning.lower() == 'win':
         print('You won!')
         player.WinningMoney(bets)
